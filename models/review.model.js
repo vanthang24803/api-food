@@ -4,9 +4,13 @@ const { Schema, model } = mongoose;
 
 const ReviewSchema = new Schema(
   {
-    author: { type: Schema.Types.ObjectId, ref: "User" },
+    author: {
+      id: { type: Schema.Types.ObjectId, ref: "User" }, 
+      username: String,
+      image : String,
+    },
     title: String,
-    start: Number,
+    star: Number,
   },
   {
     timestamps: true,

@@ -51,6 +51,7 @@ export const login = async (req, res) => {
       {
         id: user._id,
         username: user.username,
+        image: user.image,
       },
       secret,
       { expiresIn: "1d" },
@@ -59,6 +60,7 @@ export const login = async (req, res) => {
         res.cookie("token", token, { maxAge: 24 * 60 * 60 * 1000 }).json({
           id: user._id,
           username,
+          image: user.image,
         });
       }
     );

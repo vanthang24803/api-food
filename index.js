@@ -5,8 +5,9 @@ import cors from "cors";
 import configureCloudinary from "./configs/cloudinary.config.js";
 
 import connect from "./configs/db.config.js";
-import authRouter from "./router/auth.router.js";
-import productRouter from "./router/product.router..js";
+import authRouter from "./routers/auth.router.js";
+import productRouter from "./routers/product.router.js";
+import reviewRouter from "./routers/review.router.js";
 
 // ENV
 config();
@@ -43,3 +44,4 @@ app.get("/", (req, res) => {
 
 app.use(authRouter);
 app.use(productRouter);
+app.use(reviewRouter);
