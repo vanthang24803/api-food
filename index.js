@@ -2,9 +2,11 @@ import express from "express";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import configureCloudinary from "./configs/cloudinary.config.js";
 
 import connect from "./configs/db.config.js";
 import authRouter from "./router/auth.router.js";
+import productRouter from "./router/product.router..js";
 
 // ENV
 config();
@@ -26,7 +28,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
+configureCloudinary();
 // PORT
 const port = process.env.PORT || 3000;
 
@@ -40,3 +42,4 @@ app.get("/", (req, res) => {
 });
 
 app.use(authRouter);
+app.use(productRouter);
